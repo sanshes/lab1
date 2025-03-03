@@ -1,12 +1,18 @@
 CXX = g++
-CXXFLAGS = -Wall
+CXXFLAGS = -Wall -Wextra
 TARGET = main
 SRC = main.cpp
+OBJECTS = $(SRC:.cpp=.o)
 
 all: $(TARGET)
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+%.0: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	
+.PHONY: clean
 
 clean:
 	rm -f $(TARGET)

@@ -2,13 +2,13 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - lab1
+      - main
 jobs:
   RunMake:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/chekout@v4
+        uses: actions/cheсkout@v4
       - name: Install dependencies
         run: sudo apt update && sudo apt install -y build-essential dpkg
       - name: Run Make
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/chekout@v4
+        uses: actions/cheсkout@v4
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/chekout@v4
+        uses: actions/cheсkout@v4
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
@@ -56,10 +56,10 @@ jobs:
           path: artifacts/
       - name: Create Debian Package
         run: |
-          mkdir -p artifacts/deb/user/local/bin
+          mkdir -p artifacts/deb/usr/local/bin
           mkdir -p artifacts/deb/DEBIAN
           cp DEBIAN/control artifacts/deb/DEBIAN
-          cp artifacts/main artifacts/deb/user/local/bin
+          cp artifacts/main artifacts/deb/usr/local/bin
           dpkg-deb --build artifacts/deb lab2.deb
       - name: Upload Debian Package
         uses: actions/upload-artifact@v4

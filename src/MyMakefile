@@ -1,13 +1,13 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra
+CXXFLAGS = -Wall -Wextra -O2
 TARGET = main
 SRC = main.cpp
 OBJECTS = $(SRC:.cpp=.o)
 
-all: $(TARGET)
+all: $(TARGET) install clean
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $^
 
 %.0: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<

@@ -4,10 +4,10 @@ TARGET = main
 SRC = main.cpp
 OBJECTS = $(SRC:.cpp=.o)
 
-all: $(TARGET) install clean
+all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 %.0: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<

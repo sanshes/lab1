@@ -1,51 +1,32 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>  // для atoi
 
 using namespace std;
 
-unsigned long  long factorial(unsigned long long n);
-int main()
+unsigned long long factorial(unsigned long long n);
+
+int main(int argc, char* argv[])
 {
-  string s;
-  unsigned long long n = 0;
-  bool p = true;
-  
-  while (p)
-  {
-    cout << "Enter number = ";
-    getline(std::cin, s);
-    p = false;
-    for (size_t i = 0; i < s.length(); i++)
-    {
-      if (!isdigit(s[i]))
-      {
-        p = true;
-      }
+    if (argc != 2) {
+        cerr << "Usage: " << argv[0] << " <number>" << endl;
+        return 1;
     }
-    if (p == false)
-    {
-      if (s == "")
-      {
-        p = true;
-      }
-      else
-      {
-        n = stod(s);
-        if (n > 20)
-        {
-          p = true;
-        }
-      }
+
+    unsigned long long n = atoi(argv[1]);
+
+    if (n > 20) {
+        cerr << "Error: Number must be less than or equal to 20." << endl;
+        return 1;
     }
-  }
-  
-  cout << factorial(n) << endl;
-  return 0;
+
+    cout << factorial(n) << endl;
+    return 0;
 }
 
 unsigned long long factorial(unsigned long long n)
 {
-  if (n == 0)
-    return 1;
-  return n * factorial(n - 1);
+    if (n == 0)
+        return 1;
+    return n * factorial(n - 1);
 }

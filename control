@@ -1,0 +1,8 @@
+Source: lab1
+Section: misc
+Priority: optional
+Maintainer: Sofya <sofya.eroshenko89@mail.ru>
+Package: lab1
+Version: 1.0
+Architecture: amd64
+Description: factorial

@@ -79,3 +79,33 @@ jobs:
           name: lab2-deb
           path: lab2.deb
 
+RunDeploy:
+    needs: RunPackage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Debian Package
+        uses: actions/download-artifact@v4
+        with:
+          name: lab2-deb
+          path: ./  
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Build Docker image
+        run: |
+        docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/lab1:latest .
+
+      - name: Run Docker container
+        timeout-minutes: 1
+        run: echo 10 | docker run -i --rm ${{ secrets.DOCKER_HUB_USERNAME }}/lab1:latest
+        
+      - name: Push Docker image
+        run: |
+        docker push ${{ secrets.DOCKER_HUBDOCKER_HUB_USERNAME_USER }}/lab1:latest

@@ -107,8 +107,8 @@ jobs:
           context: .  
           file: ./Dockerfile
           push: true
-          tags: secrets.DOCKER_HUB_USERNAME/lab1:latest
+          tags: ${{secrets.DOCKER_HUB_USERNAME}}/lab1:latest
 
       - name: Run Container
         run: |
-          docker run --rm secrets.DOCKER_HUB_USERNAME/lab1 10
+          docker run --rm ${{secrets.DOCKER_HUB_USERNAME}}/lab1 10

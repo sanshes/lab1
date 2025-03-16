@@ -89,7 +89,7 @@ jobs:
       - name: Download Debian Package
         uses: actions/download-artifact@v4
         with:
-          name: lab1-deb
+          name: lab2-deb
           path: ./  
 
       - name: Set up Docker Buildx

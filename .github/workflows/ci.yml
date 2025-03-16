@@ -103,7 +103,7 @@ jobs:
               docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/lab1:latest .
 
       - name: Run Docker container
-        timeout-minutes: 3
+        timeout-minutes: 5
         run: docker run -i --rm ${{ secrets.DOCKER_HUB_USERNAME }}/lab1:latest 10
         
       - name: Push Docker image

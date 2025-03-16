@@ -73,11 +73,6 @@ jobs:
           cp artifacts/main artifacts/deb/usr/local/bin
           dpkg-deb --build artifacts/deb lab2.deb
 
-      - name: Install Debian Package
-        run: |
-          sudo dpkg -i lab2.deb
-          find / -type f -name "main"
-
       - name: Upload Debian Package
         uses: actions/upload-artifact@v4
         with:

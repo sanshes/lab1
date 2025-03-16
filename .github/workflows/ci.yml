@@ -100,7 +100,7 @@ RunDeploy:
 
       - name: Build Docker image
         run: |
-        docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/lab1:latest .
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/lab1:latest .
 
       - name: Run Docker container
         timeout-minutes: 1
@@ -108,4 +108,4 @@ RunDeploy:
         
       - name: Push Docker image
         run: |
-        docker push ${{ secrets.DOCKER_HUBDOCKER_HUB_USERNAME_USER }}/lab1:latest
+          docker push ${{ secrets.DOCKER_HUBDOCKER_HUB_USERNAME_USER }}/lab1:latest

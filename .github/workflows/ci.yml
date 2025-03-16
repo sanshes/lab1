@@ -107,5 +107,5 @@ jobs:
         run: echo 10 | docker run -i --rm ${{ secrets.DOCKER_HUB_USERNAME }}/lab1:latest
         
       - name: Push Docker image
-        run: |
-          docker push ${{ secrets.DOCKER_HUBDOCKER_HUB_USERNAME_USER }}/lab1:latest
+        run: |
+          docker push ${{ secrets.DOCKER_HUBDOCKER_HUB_USERNAME }}/lab1:latest

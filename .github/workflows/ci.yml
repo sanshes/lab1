@@ -75,7 +75,7 @@ jobs:
 
       - name: Install Debian Package
         run: |
-          sudo dpkg -i artifacts/deb/lab1.deb
+          sudo dpkg -i lab2.deb
           find / -type f -name "main"
 
       - name: Upload Debian Package

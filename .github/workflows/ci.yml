@@ -79,7 +79,7 @@ jobs:
           name: lab2-deb
           path: lab2.deb
 
-RunDeploy:
+  RunDeploy:
     needs: RunPackage
     runs-on: ubuntu-latest
     steps:
